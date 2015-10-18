@@ -1,3 +1,4 @@
+<div class = "row clearfix">
   <% if item.completed? %>
     <div class="complete">
       <%= link_to complete_list_item_path(@list, item.id), method: :patch do %>
@@ -29,4 +30,4 @@
       <% end %>
     </div>
   <% end %>
-  
+</div>

@@ -1,17 +1,11 @@
-<div class="col-md-12">
-  <table class="table">
-    <div class="group">
-      <%= link_to("New List", new_list_path, class: "btn btn-primary pull-right") %>
-    </div>
-    
-    <% @lists.each do |list| %>
-      <tr>  
-        <td>
-          <%= link_to(list.title, list_path(list)) %><br />
-          <%= list.description %>
-        </td> 
-      </tr>
-    <% end %>
+<% @lists.each do |list| %>
+  <div class="index_row clearfix">
+      <h2 class="todo_list_title"><%= link_to(list.title, list_path(list)) %></h2>
+      <p class="todo_list_sub_title"><%= list.description %></p>
+  </div>
+<% end %>
 
-  </table>
+<div class="links">
+  <%= link_to "New todo list", new_list_path %>
 </div>
+
