@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :lists
+  resources :lists do
+    resources :items
+  end
 
 end
