@@ -56,7 +56,11 @@ Rails.application.routes.draw do
   #   end
 
   resources :lists do
-    resources :items
+    resources :items do
+      member do
+        patch :complete
+      end
+    end
   end
 
 end

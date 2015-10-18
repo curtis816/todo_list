@@ -1,2 +1,24 @@
-<p><%= item.content %></p>
-<%= link_to "Delete", list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="row clearfix col-md-12">
+  <% if item.completed? %>
+    <div class="complete">
+      <%= link_to "Mark as complete", complete_list_item_path(@list, item.id), method: :patch %>
+    </div>
+    <div class="item">
+      <p style="opacity: 0.4;"><strike><%= item.content %></strike></p>
+    </div>
+    <div class="trash">
+      <%= link_to "Delete", list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} %>
+    </div>
+  <% else %>
+    <div class="complete">
+      <%= link_to "Mark as complete", complete_list_item_path(@list, item.id), method: :patch %>
+    </div>
+    <div class="item">
+      <p><%= item.content %></p>
+    </div>
+    <div class="trash">
+      <%= link_to "Delete", list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} %>
+    </div>
+  </div>
+  <% end %>
+</div>
