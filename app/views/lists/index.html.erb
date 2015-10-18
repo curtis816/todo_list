@@ -1,0 +1,17 @@
+<div class="col-md-12">
+  <table class="table">
+    <div class="group">
+      <%= link_to("New List", new_list_path, class: "btn btn-primary pull-right") %>
+    </div>
+    
+    <% @lists.each do |list| %>
+      <tr>  
+        <td>
+          <%= link_to(list.title, list_path(list)) %><br />
+          <%= list.description %>
+        </td> 
+      </tr>
+    <% end %>
+
+  </table>
+</div>
