@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :group
+  belongs_to :list
 
   def completed?
     !completed_at.blank?

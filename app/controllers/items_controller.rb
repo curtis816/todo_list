@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_list
   before_action :set_item, except: [:create]
+  before_action :authenticate_user!, only: [:create,:destroy,:complete,:not_complete]
 
   def create
     @item = @list.items.create(item_params)

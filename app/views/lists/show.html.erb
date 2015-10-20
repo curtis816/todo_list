@@ -1,4 +1,4 @@
-<% content_for :title, "View #{@list.title}" %>
+<% content_for :page_title, "View #{@list.title}" %>
 <h2 class="todo_list_title"><%= @list.title %></h1>
 <p class="todo_list_sub_title"><%= @list.description %></p>
 
@@ -10,7 +10,9 @@
 </div>
 
 <div class="links">
-  <%= link_to("Edit", edit_list_path) %> |
-  <%= link_to("Delete", list_path(@list), method: :delete, data:{confirm: "Are you sure?"}) %> |
+  <% if @list.editable_by?(current_user) %>
+    <%= link_to("Edit", edit_list_path) %> |
+    <%= link_to("Delete", list_path(@list), method: :delete, data:{confirm: "Are you sure?"}) %> |
+  <% end %>
   <%= link_to 'Back', lists_path %>
 </div>
