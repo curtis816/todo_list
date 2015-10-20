@@ -59,6 +59,7 @@ Rails.application.routes.draw do
     resources :items do
       member do
         patch :complete
+        patch :not_complete
       end
     end
   end

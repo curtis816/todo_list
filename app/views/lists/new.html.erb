@@ -1,12 +1,13 @@
-  <h1 class="todo_list_title">new list</h1>
-  <div class="forms">
-    <%= simple_form_for (@list) do |f| %>
-      <div class = "form-group">
-        <%= f.input :title, input_html: { class: "form-control"} %>
-        <%= f.input :description, input_html: { class: "form-control"} %>
-      </div>
-      <%= f.submit "Create List", class: "btn-primary", data: { disable_with: "Creating..."} %>
-    <% end %>
-    <div class="links"><%= link_to 'Back', lists_path %></div>
-  </div>
+<% content_for :title, "create todo list" %>
+<h1 class="todo_list_title">new list</h1>
+<div class="forms">
+  <%= simple_form_for (@list) do |f| %>
+    <div class = "form-group">
+      <%= f.input :title, input_html: { class: "form-control"} %>
+      <%= f.input :description, input_html: { class: "form-control"} %>
+    </div>
+    <%= f.submit "Create List", class: "btn-primary", data: { disable_with: "Creating..."} %>
+  <% end %>
+  <div class="links"><%= link_to 'Back', lists_path %></div>
+</div>
 

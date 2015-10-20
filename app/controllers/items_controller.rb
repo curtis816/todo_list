@@ -21,6 +21,11 @@ class ItemsController < ApplicationController
     redirect_to @list, notice: "Item completed"
   end
 
+  def not_complete
+    @item.update_attribute(:completed_at, nil)
+    redirect_to @list, notice: "Item not complete"
+  end
+
   private
 
   def set_list

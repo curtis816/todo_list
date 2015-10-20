@@ -1,7 +1,7 @@
 <div class = "row clearfix">
   <% if item.completed? %>
     <div class="complete">
-      <%= link_to complete_list_item_path(@list, item.id), method: :patch do %>
+      <%= link_to not_complete_list_item_path(@list, item.id), method: :patch do %>
         <i style="opacity: 0.4;" class="fa fa-check"></i>
       <% end %>
     </div>
