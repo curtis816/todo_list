@@ -18,13 +18,21 @@ class ItemsController < ApplicationController
   end
 
   def complete
-    @item.update_attribute(:completed_at, Time.now)
-    redirect_to @list, notice: "Item completed"
+    if @list.editable_by?(current_user)
+      @item.update_attribute(:completed_at, Time.now)
+      redirect_to @list, notice: "Item completed"
+    else
+      redirect_to @list, alert: "You can't update status"
+    end
   end
 
   def not_complete
-    @item.update_attribute(:completed_at, nil)
-    redirect_to @list, notice: "Item not complete"
+    if @list.editable_by?(current_user)
+      @item.update_attribute(:completed_at, nil)
+      redirect_to @list, notice: "Item not complete yet."
+    else
+      redirect_to @list, alert: "You can't update status"
+    end
   end
 
   private

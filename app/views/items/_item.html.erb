@@ -8,11 +8,13 @@
     <div class="todo_item">
       <p style="opacity: 0.4;"><strike><%= item.content %></strike></p>
     </div>
-    <div class="trash">
-      <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} do%>
-        <i class="fa fa-trash"></i>
-      <% end %>
-    </div>
+    <% if @list.editable_by?(current_user) %>
+      <div class="trash">
+        <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} do%>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
 
   <% else %>
 
@@ -24,10 +26,12 @@
     <div class="todo_item">
       <p><%= item.content %></p>
     </div>
-    <div class="trash">
-      <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} do%>
-        <i class="fa fa-trash"></i>
-      <% end %>
-    </div>
+    <% if @list.editable_by?(current_user) %>
+      <div class="trash">
+        <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?"} do%>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
