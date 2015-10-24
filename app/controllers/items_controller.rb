@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def create
     @item = @list.items.create(item_params)
 
-    redirect_to @list
+    redirect_to @list, notice: "Item Created"
   end
 
   def destroy

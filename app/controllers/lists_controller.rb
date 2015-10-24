@@ -22,7 +22,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.create(list_params)
 
     if @list.save
-      redirect_to lists_path
+      redirect_to lists_path, notice:"List created"
     else
       flash.now[:alert] = '失敗囉'
       render :new
